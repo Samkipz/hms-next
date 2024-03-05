@@ -1,0 +1,44 @@
+.container{
+    color: var(--whiteText);
+    height: 100vh;
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.hospitalName{
+    display: flex;
+    font-weight: 900;
+    /* justify-content: center; */
+    font-size: 180%;
+    margin-bottom: 20px;
+    
+}
+
+.sidebarMenu{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    font-size: 105%;
+    row-gap: 20px;
+    /* border: 1px solid yellow; */
+}
+
+.sidebarMenu li{
+    list-style: none;
+    /* border: 1px solid yellow; */
+}
+
+.sidebarMenu span {
+    /* border: 1px solid yellow; */
+    font-weight: bold;
+    /* margin-top: 10px; */
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+.list{
+    display:flex;
+    flex-direction: column;
+    /* padding: 0 5px; */
+}

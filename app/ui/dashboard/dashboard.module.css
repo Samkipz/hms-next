@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+}
+
+.leftBar{
+    flex: 1;
+    background-color: var(--bgFirstDark);
+    color: var(--whiteText);
+}
+
+.content{
+    flex: 4;
+}
