@@ -4,10 +4,14 @@
 
 .leftBar{
     flex: 1;
-    background-color: var(--bgFirstDark);
+    background-color: var(--myDarkBlue);
     color: var(--whiteText);
 }
 
 .content{
-    flex: 4;
+    flex: 5;
+}
+
+.chldren{
+    padding: 0 20px;
 }

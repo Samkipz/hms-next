@@ -1,0 +1,32 @@
+.container{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 10px;
+    padding: 20px;
+    align-items: center;
+    background-color: var(--myDarkBlue);
+    color: var(--myWhite);
+    text-transform: capitalize;
+    border-radius: 5px;
+    border: none;
+}
+
+.navMenu{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
+    gap: 25px;
+    padding: 0 10px;
+}
+
+.navMenu{
+    display: flex;
+}
+
+
+.navAvatar img{
+    /* border: 1px solid red; */
+    border-radius: 50px;
+    border: none;
+}

@@ -1,0 +1,44 @@
+.container{
+    width: 100%;
+}
+
+.allModules{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 3 cards per row */
+    gap: 20px; /* space around each card */
+}
+
+.allModules .card{
+    /* background-color: #f0f0f0; */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 110%;
+    font-weight: 700;
+    background-color: var(--myBlue);
+    color: var(--myWhite);
+}
+
+
+/* .card:nth-child(2n) {
+    background-color: var(--myYellow); 
+  }
+  .card:nth-child(3n) {
+    background-color: var(--myBlue); 
+  }
+  .card:nth-child(4n) {
+    background-color: var(--myRed); 
+  }
+  .card:nth-child(5n) {
+    background-color: var(--myBlue); 
+  }
+  .card:nth-child(6n) {
+    background-color: #D8BFD8; 
+  } */
+
+@media (max-width: 768px) {
+    .allModules {
+      grid-template-columns: 1fr; /* Single card per row for small screens */
+    }
+}

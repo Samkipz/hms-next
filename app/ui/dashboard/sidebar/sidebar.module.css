@@ -1,24 +1,25 @@
 .container{
-    color: var(--whiteText);
+    color: var(--myWhite);
     height: 100vh;
-    /* padding: 10px; */
+    
     display: flex;
     flex-direction: column;
 }
 
-.hospitalName{
+/* .hospitalName{
     display: flex;
     font-weight: 900;
-    /* justify-content: center; */
+    justify-content: center;
     font-size: 180%;
     margin-bottom: 20px;
     
-}
+} */
 
 .sidebarMenu{
     display: flex;
     flex-direction: column;
     margin: 20px 0;
+    padding: 10px;
     font-size: 105%;
     row-gap: 20px;
     /* border: 1px solid yellow; */

@@ -1,7 +1,18 @@
-import React from "react";
+import Search from "@/ui/dashboard/search/search";
+import styles from "./doctor.modules.css";
 
-const doctor = () => {
-  return <div>doctor</div>;
+const AdminDoctor = () => {
+  return (
+    <div className={styles.container}>
+      <div className={styles.top}>Top space</div>
+      <div className={styles.tableContainer}>
+        <div className={styles.tableTop}>
+          <Search />
+        </div>
+        <table className={styles.table}>Table</table>
+      </div>
+    </div>
+  );
 };
 
-export default doctor;
+export default AdminDoctor;
