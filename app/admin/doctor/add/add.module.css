@@ -1,0 +1,84 @@
+.container{
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.header{
+    margin-top: 20px;
+    border: 1px solid;
+    width: 80%;
+    padding: 20px;
+}
+.header h4{
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 80%;
+}
+.title{
+    font-weight: 500;
+    margin-top: 20px;
+}
+.username{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.username input{
+    width: 48%;
+    background-color: var(--myGrey);
+    border: 1px solid #ccc;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+.submitButton{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    background-color: var(--myDarkBlue);
+    border: none;
+    color: var(--myWhite);
+    border-radius: 4px;
+    font-size: 105%;
+    cursor: pointer;
+}
+
+.submitButton:hover{
+    background-color: var(--myBlueHover);
+}
+
+@media (max-width: 768px) {
+    .header{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .form{
+        width: 100%;
+    }
+    .username{
+        flex-direction: column;
+        width: 100%;
+    }
+    .username input{
+        width: 100%;
+    }
+}

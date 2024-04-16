@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model disease {
+  id                  Int                   @id @unique(map: "patient_no_UNIQUE") @default(autoincrement())
+  disease_name        String                @db.VarChar(250)
+  ICD10_code          String                @unique(map: "ICD10_code_UNIQUE") @db.VarChar(150)
+  disease_has_symptom disease_has_symptom[]
+  patient_diagnosis   patient_diagnosis[]
+}
+
+model disease_has_symptom {
+  disease_id Int
+  symptom_id Int
+  disease    disease @relation(fields: [disease_id], references: [id], onDelete: Cascade, map: "fk_disease_has_symptom_disease1")
+  symptom    symptom @relation(fields: [symptom_id], references: [id], onDelete: Cascade, map: "fk_disease_has_symptom_symptom1")
+
+  @@id([disease_id, symptom_id])
+  @@index([disease_id], map: "fk_disease_has_symptom_disease1_idx")
+  @@index([symptom_id], map: "fk_disease_has_symptom_symptom1_idx")
+}
+
+model patient {
+  patient_no        Int                 @id @unique(map: "patient_no_UNIQUE")
+  patient_name      String              @db.VarChar(200)
+  dob               DateTime            @db.Date
+  gender            String              @db.VarChar(100)
+  contact           String              @db.VarChar(100)
+  address           String?             @db.VarChar(200)
+  patient_status    Int
+  dependant_id      Int?
+  patient_diagnosis patient_diagnosis[]
+  visit             visit[]
+}
+
+model patient_diagnosis {
+  id            Int         @id @unique(map: "patient_no_UNIQUE")
+  hpi           String      @db.Text
+  patient_no    Int
+  vital_sign_id Int?
+  visit_no      Int?
+  disease_id    Int?
+  symptom_id    Int?
+  disease       disease?    @relation(fields: [disease_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_patient_diagnosis_disease1")
+  patient       patient     @relation(fields: [patient_no], references: [patient_no], onDelete: Cascade, map: "fk_patient_diagnosis_patient1")
+  symptom       symptom?    @relation(fields: [symptom_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_patient_diagnosis_symptom1")
+  visit         visit?      @relation(fields: [visit_no], references: [visit_no], onDelete: Cascade, map: "fk_patient_diagnosis_visit1")
+  vital_sign    vital_sign? @relation(fields: [vital_sign_id], references: [id], onDelete: Cascade, map: "fk_patient_diagnosis_vital_sign1")
+
+  @@index([disease_id], map: "fk_patient_diagnosis_disease1_idx")
+  @@index([patient_no], map: "fk_patient_diagnosis_patient1_idx")
+  @@index([symptom_id], map: "fk_patient_diagnosis_symptom1_idx")
+  @@index([visit_no], map: "fk_patient_diagnosis_visit1_idx")
+  @@index([vital_sign_id], map: "fk_patient_diagnosis_vital_sign1_idx")
+}
+
+model role {
+  id        Int    @id @unique(map: "patient_no_UNIQUE") @default(autoincrement())
+  role_name String @db.VarChar(250)
+  user      user[]
+}
+
+model symptom {
+  id                  Int                   @id @unique(map: "patient_no_UNIQUE") @default(autoincrement())
+  symptom_name        String                @db.VarChar(250)
+  disease_has_symptom disease_has_symptom[]
+  patient_diagnosis   patient_diagnosis[]
+}
+
+model user {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(150)
+  email       String?   @unique(map: "email_UNIQUE") @db.VarChar(100)
+  staff_no    String    @unique(map: "staff_no_UNIQUE") @db.VarChar(100)
+  password    String    @db.VarChar(150)
+  last_login  DateTime? @default(now()) @db.Timestamp(0)
+  create_time DateTime? @default(now()) @db.Timestamp(0)
+  role_id     Int
+  role        role      @relation(fields: [role_id], references: [id], onDelete: Cascade, map: "fk_user_role")
+
+  @@index([role_id], map: "fk_user_role_idx")
+}
+
+model visit {
+  visit_no          Int                 @id @unique(map: "patient_no_UNIQUE")
+  dov               DateTime            @db.Date
+  visit_status      String              @db.VarChar(100)
+  patient_no        Int
+  patient_diagnosis patient_diagnosis[]
+  patient           patient             @relation(fields: [patient_no], references: [patient_no], onDelete: Cascade, map: "fk_visit_patient1")
+
+  @@index([patient_no], map: "fk_visit_patient1_idx")
+}
+
+model vital_sign {
+  id                Int                 @id @unique(map: "patient_no_UNIQUE") @default(autoincrement())
+  sign_name         String              @db.VarChar(250)
+  value             String              @unique(map: "ICD10_code_UNIQUE") @db.VarChar(150)
+  patient_diagnosis patient_diagnosis[]
+}
