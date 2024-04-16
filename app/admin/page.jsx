@@ -1,6 +1,7 @@
 import Card from "../ui/dashboard/card/card";
 import styles from "../ui/dashboard/adminPage.module.css";
-import dataItems from "@/data";
+// import dataItems from "@/data";
+import dataItems from '../data';
 import Link from "next/link";
 
 const adminDashboard = () => {

@@ -1,11 +1,11 @@
-import styles from "./search.modules.css";
+import styles from "./search.module.css";
 import { MdSearch } from "react-icons/md";
 
-const Search = (placeholder) => {
+const Search = ({placeholder}) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container}> 
       <MdSearch />
-      <input type="text" placeholder={placeholder} />
+      <input type="text" placeholder={placeholder} className={styles.input} />
     </div>
   );
 };

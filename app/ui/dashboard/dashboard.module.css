@@ -6,6 +6,7 @@
     flex: 1;
     background-color: var(--myDarkBlue);
     color: var(--whiteText);
+    min-height: 100vh;
 }
 
 .content{

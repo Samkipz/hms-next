@@ -1,8 +1,8 @@
-import React from 'react'
+import styles from '../app/ui/login/login.module.css'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div className={styles.container}>HomePage</div>
   )
 }
 

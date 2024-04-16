@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className={styles.navMenu}>
         <MdOutlineChat size={30} />
         <MdNotifications size={30} />
-        <div className={styles.navAvatar}>
+        <div className={styles.avatar}>
           <Image
             src="/noavatar.png"
             alt="profile picture"

@@ -4,10 +4,14 @@
     --myBlue: #3772ff;
     --myRed: #df2935;
     --myYellow: #fdca40;
-    --myGrey: #e6e8e6;
+    --myGrey: #e9e9ed;
     --myWhite: #FEFEFF;
+    --myGreen: #00805a;
+    
 
     --myDarkBlue: #0c1e41;
+    --myLightBlue: #283753;
+    --myBlueHover: #081730;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
